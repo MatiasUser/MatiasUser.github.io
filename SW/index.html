@@ -32,6 +32,10 @@ FB.getLoginStatus(function(response) {
   // already logged in, go directly to the welcome message.
   if (response.status == 'connected') {
     onLogin(response);
+
+    FB.api ('/me', function(info) {
+      console.log (info);
+    });
   } else {
     // Otherwise, show Login dialog first.
     FB.login(function(response) {
